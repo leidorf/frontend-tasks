@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, colors, Link, TextField } from "@mui/material";
+import { Box, Button, colors, Grid, Grid2, Link, TextField, Typography } from "@mui/material";
 
 {
   /* 
@@ -15,7 +15,7 @@ import { Button, colors, Link, TextField } from "@mui/material";
 
 export async function getServerSideProps() {
   try {
-    const response = await fetch("https://api.genratr.com/?length=16&uppercase&lowercase&special&numbers");
+    const response = await fetch("https://api.genratr.com/?length=32&uppercase&lowercase&special&numbers");
     if (!response.ok) {
       throw new Error("failed to fetch data");
     }
@@ -43,7 +43,7 @@ export default function Home({ passwdEx }) {
   const [reqs, setReqs] = useState([
     { id: 1, state: (password) => password.length >= 16, text: "en az 16 karakter olmalı", isTrue: false },
     { id: 2, state: (password) => password.match(/[A-Z]/), text: "büyük harf içermeli", isTrue: false },
-    { id: 3, state: (password) => password.match(/\d/), text: "harf içermeli", isTrue: false },
+    { id: 3, state: (password) => password.match(/\d/), text: "rakam içermeli", isTrue: false },
     { id: 4, state: (password) => regex.test(password), text: "özel karakter içermeli", isTrue: false },
     { id: 5, state: (password) => password.includes("yavuzlar"), text: "'yavuzlar' içermeli", isTrue: false },
     {
@@ -83,89 +83,142 @@ export default function Home({ passwdEx }) {
 
   const handleSubmit = () => {
     if (allTrue) {
-      setShowPassword(true);
+      setShowPassword(!showPassword);
     }
   };
 
   return (
     <>
-      <div>
-        <p className="title">Meet the Requirements</p>
-        <TextField
-          color=""
-          type="text"
-          name="password"
-          id="password"
-          label="password"
-          placeholder={passwdEx ? passwdEx : "güçlü bir şey dene"}
-          value={password}
-          onChange={handlePasswordChange}
-          size="small"
-          error={!allTrue}
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": { borderColor: "grey.500" },
-              "&:hover fieldset": { borderColor: "grey.300" },
-              "&.Mui-focused fieldset": { borderColor: "secondary.main" },
-              color: "white",
-              "& input::placeholder": {
-                color: "#a0a0a0",
-                opacity: 1,
+      <Grid2
+        container
+        justifyContent={"center"}
+        textAlign={"center"}
+        sx={{
+          minHeight: "100vh",
+          paddingTop: "7.5rem",
+        }}
+      >
+        <Grid2
+          item
+          size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+        >
+          <Typography
+            variant="h3"
+            sx={{
+              color: "#73cd07",
+              marginBottom: "1.5rem",
+            }}
+          >
+            Meet the Requirements
+          </Typography>
+          <TextField
+            type="text"
+            name="password"
+            id="password"
+            label="şifre"
+            fullWidth
+            color="success"
+            placeholder={passwdEx ? passwdEx : "güçlü bir şey dene"}
+            value={password}
+            onChange={handlePasswordChange}
+            size="small"
+            error={!allTrue}
+            sx={{
+              marginBottom: "1rem",
+              input: {
+                color: "white",
               },
-            },
-          }}
-        />
-        <Button
-          type="submit"
-          disabled={!allTrue}
-          onClick={handleSubmit}
-        >
-          göster
-        </Button>
-        <div>
-          <ul>
-            {reqs.map((req, index) => {
-              if (index === 0) {
-                return (
-                  <li
-                    key={req.id}
-                    style={{ color: req.isTrue ? "green" : "red" }}
-                  >
-                    {req.text}
-                  </li>
-                );
-              }
+            }}
+          />
+          <Button
+            type="submit"
+            disabled={!allTrue}
+            onClick={handleSubmit}
+            fullWidth
+            sx={{
+              marginBottom: "1rem",
+              "&.Mui-disabled": {
+                color: "grey",
+              },
+            }}
+          >
+            {showPassword ? "GİZLE" : "GÖSTER"}
+          </Button>
+          <Box sx={{ marginBottom: "1rem" }}>
+            <ul>
+              {reqs.map((req, index) => {
+                if (index === 0) {
+                  return (
+                    <Box
+                      key={req.id}
+                      style={{ color: req.isTrue ? "#73cd07" : "#F44336" }}
+                      sx={{
+                        paddingY: "0.25rem",
+                        transition: "color 0.5s ease",
+                      }}
+                    >
+                      {req.text}
+                    </Box>
+                  );
+                }
 
-              const prevMet = reqs.slice(0, index).every((r) => r.isTrue);
-              if (prevMet) {
-                return (
-                  <li
-                    key={req.id}
-                    style={{ color: req.isTrue ? "green" : "red" }}
-                  >
-                    {req.text}
-                  </li>
-                );
-              }
+                const prevMet = reqs.slice(0, index).every((r) => r.isTrue);
+                if (prevMet) {
+                  return (
+                    <Box
+                      key={req.id}
+                      style={{ color: req.isTrue ? "#73cd07" : "#F44336" }}
+                      sx={{
+                        paddingY: `0.25rem`,
+                        transition: "color 0.5s ease",
+                      }}
+                    >
+                      {req.text}
+                    </Box>
+                  );
+                }
 
-              return null;
-            })}
-          </ul>
-          {allTrue && <p>{`bütün güvenlik isterleri karşılandı, güvenli şifrenizi artık kullanabilirsiniz :>`}</p>}
-          {allTrue && showPassword && (
-            <div>
-              <p>şifre:</p>
-              <p>{password}</p>
-            </div>
+                return null;
+              })}
+            </ul>
+          </Box>
+          {allTrue && (
+            <Typography
+              sx={{ marginBottom: "1rem" }}
+            >{`bütün güvenlik isterleri karşılandı, güvenli şifrenizi artık kullanabilirsiniz :>`}</Typography>
           )}
-        </div>
-        <Link
-          href="https://www.github.com/leidorf"
-          target="_blank"
-        >
-          github
-        </Link>
-      </div>
+          {allTrue && showPassword && (
+            <Box>
+              <Typography sx={{ color: "#73cd07" }}>şifre:</Typography>
+              <Typography
+                sx={{
+                  flexWrap: "wrap",
+                }}
+              >
+                {password}
+              </Typography>
+            </Box>
+          )}
+          <Link
+            href="https://www.github.com/leidorf"
+            target="_blank"
+            sx={{
+              position: "absolute",
+              bottom: "2rem",
+              color: "#73cd07",
+              left: "50%",
+              transform: "translateX(-50%)",
+              textDecoration: "none",
+              "&:hover": {
+                color: "#509917",
+                transition: "color 0.25s ease",
+              },
+            }}
+          >
+            github
+          </Link>
+        </Grid2>
+      </Grid2>
     </>
   );
 }
