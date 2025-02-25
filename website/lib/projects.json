@@ -1,0 +1,45 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "NWRobotic Plaka Tanıma Web Sitesi",
+      "description": "MVC mimarisinde .NET8 ve C# kullanarak plaka tanıma sisteminin web sitesini geliştirdim."
+    },
+    {
+      "id": 2,
+      "title": "SynthiMark Website",
+      "description": "Next.js kullanarak yapay zeka tabanlı abonelik sisteminin frontendinin geliştirilmesinde yer aldım.",
+      "link": "https://synthimarkai-internal-bytesynthix.vercel.app/"
+    },
+    {
+      "id": 3,
+      "title": "LeftClick Sec",
+      "description": "URL içeriğinden phishing tespiti yapabilen makine öğrenmesi modeli geliştirdim. Modeli Next.js, MySQL, Python ve Docker kullanarak web sitesine entegre ettim. Ayrıca bu hizmeti Firefox ve Chrome tarayıcıları için eklenti haline getirdim.",
+      "link": "https://github.com/leidorf/leftclick-sec"
+    },
+    {
+      "id": 4,
+      "title": "leidorf.space",
+      "description": "Yaptığım işleri paylaşmak için Next.js, Go, PostgreSQL, Docker kullanarak portfolyo sitesi geliştirdim.",
+      "link": "https://github.com/leidorf/leidorf.space"
+    },
+    {
+      "id": 5,
+      "title": "BTK Web Sitesi",
+      "description": "Öğrenci kulübüne yeni katılmış web ile ilgili kişilerle Next.js ve Docker kullanarak kulübün web sitesini geliştiriyoruz. Geliştirme aşamasında ekip lideri olarak rol alıyorum.",
+      "link": "https://btk-khaki.vercel.app/"
+    },
+    {
+      "id": 6,
+      "title": "Cyber Heroes",
+      "description": "Next.js, SQLite kullanrak çocuklara yönelik internet güvenliği quiz sitesi geliştirdim.",
+      "link": "https://cyber-heroes.vercel.app/"
+    },
+    {
+      "id": 7,
+      "title": "What Could Be the Worst",
+      "description": "Eğlence ve kendimi geliştirme amacıyla Angular.js kullanarak hastalık semptomlarına sarkastik cevaplar veren web sitesi geliştirdim.",
+      "link": "https://what-could-be-the-worst.vercel.app/"
+    }
+  ]
+}

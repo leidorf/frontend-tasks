@@ -1,0 +1,69 @@
+{
+  "experiences": [
+    {
+      "id": 1,
+      "title": "Önder Lift Çelik Mak.",
+      "description": "ROS tabanlı AGV robotlar için Next.js, MySQL kullanarak robot kontrol web arayüzü geliştirdim."
+    }
+  ],
+  "skills": [
+    { "id": 1, "title": "JavaScript" },
+    { "id": 2, "title": "Next.js" },
+    { "id": 3, "title": "PHP" },
+    { "id": 4, "title": "Go" },
+    { "id": 5, "title": "Git" },
+    { "id": 6, "title": "Docker" },
+    { "id": 7, "title": "Linux" },
+    { "id": 8, "title": "nmap" },
+    { "id": 9, "title": "Burp Suite" },
+    { "id": 10, "title": "dirsearch" },
+    { "id": 11, "title": "subfinder" }
+  ],
+  "certificates": [
+    {
+      "id": 1,
+      "title": "Unity Junior Programmer",
+      "link": "https://www.credly.com/badges/d26aac8d-c386-4c0f-9785-c2c781826402/linked_in_profile"
+    },
+    {
+      "id": 2,
+      "title": "Etik Hacker Olma Kursu",
+      "link": "https://www.udemy.com/certificate/UC-d35babd1-eba6-45c2-9fb1-48b39bb9c5eb/"
+    },
+    {
+      "id": 3,
+      "title": "Networking Basics",
+      "link": "https://www.credly.com/badges/4f28c4aa-e86b-4a50-9890-591122fdbf4f/public_url"
+    },
+    {
+      "id": 4,
+      "title": "Introduction to Cybersecurity",
+      "link": "https://www.credly.com/badges/5252ddae-4c22-43e0-92bb-7885006791a5/public_url"
+    },
+    {
+      "id": 5,
+      "title": "Beyaz Şapkalı Hacker ve Temel Linux",
+      "link": "https://drive.google.com/file/d/1Iy2BxBd76AIlP6Rs13fyIFUyQxSYv90f/view?usp=drivesdk"
+    },
+    {
+      "id": 6,
+      "title": "Sızma Testi",
+      "link": "https://drive.google.com/file/d/1JhUn-3rSkTTPe0smjj0Ltjo3tCi2d4qt/view?usp=sharing"
+    },
+    {
+      "id": 7,
+      "title": "Zararlı Yazılım Analizi ve Tersine Mühendislik",
+      "link": "https://drive.google.com/file/d/1ESydnWOVf2SCWZX3JTIRLyWtSPEJ3E2q/view?usp=sharing"
+    },
+    {
+      "id": 8,
+      "title": "Web Güvenliği",
+      "link": "https://drive.google.com/file/d/1F3RfWrNYudO0OQD_D1NDnea-YDr7idJN/view?usp=sharing"
+    },
+    {
+      "id": 9,
+      "title": "Siber Vatan Bootcamp Katılım Sertifikası",
+      "link": "https://drdogrulama.sanayi.gov.tr/tr/verify/46423060830426"
+    }
+  ]
+}
