@@ -1,13 +1,22 @@
 import Layout from "@/components/layout/Layout";
 import PageHead from "@/components/layout/PageHead";
-import { getStaticProps } from "@/functions/getAbout";
-import { Box, List, ListItem, Typography } from "@mui/material";
+import { Box, Link, List, ListItem, ListItemText, Typography } from "@mui/material";
+import fsPromises from "fs/promises";
+import path from "path";
 
-export default function About() {
-  const data = getStaticProps();
-  const exp = data.experiences ? data.experiences : "";
-  const skills = data.skills ? data.skills : "";
-  const certificates = data.certificates ? data.certificates : "";
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), "lib/about.json");
+  const jsonData = await fsPromises.readFile(filePath);
+  const objectData = JSON.parse(jsonData);
+
+  return {
+    props: {
+      data: objectData,
+    },
+  };
+}
+
+export default function About({ data }) {
   return (
     <>
       <Layout>
@@ -22,8 +31,32 @@ export default function About() {
         </Typography>
         <Box>
           <List>
-            {skills.map((skill) => (
-              <ListItem>{skill.title}</ListItem>
+            <Typography>Deneyim</Typography>
+            {data.experiences.map((experience) => (
+              <ListItem component="div">
+                <ListItemText
+                  primary={experience.title}
+                  secondary={experience.description}
+                />
+              </ListItem>
+            ))}
+          </List>
+          <List>
+            <Typography>Yetenekler</Typography>
+            {data.skills.map((skill) => (
+              <ListItem component="p">{skill.title}</ListItem>
+            ))}
+          </List>
+          <List>
+            <Typography>Sertifikalar</Typography>
+            {data.certificates.map((certificate) => (
+              <ListItem
+                component="a"
+                href={certificate.link}
+                target="_blank"
+              >
+                {certificate.title}
+              </ListItem>
             ))}
           </List>
         </Box>

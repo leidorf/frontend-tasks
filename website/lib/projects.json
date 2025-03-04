@@ -15,7 +15,7 @@
       "id": 3,
       "title": "LeftClick Sec",
       "description": "URL içeriğinden phishing tespiti yapabilen makine öğrenmesi modeli geliştirdim. Modeli Next.js, MySQL, Python ve Docker kullanarak web sitesine entegre ettim. Ayrıca bu hizmeti Firefox ve Chrome tarayıcıları için eklenti haline getirdim.",
-      "link": "https://github.com/leidorf/leftclick-sec"
+      "link": "https://leftclicksec.org"
     },
     {
       "id": 4,
