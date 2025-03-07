@@ -1,29 +1,28 @@
-import { Grid2 } from "@mui/material";
 import Header from "./Header";
 import Footer from "./Footer";
 import PageHead from "./PageHead";
+import Grid from "@mui/material/Grid2";
+import { Box } from "@mui/material";
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Grid2
+      <Grid
         container
-        justifyContent={"center"}
-        sx={{ minHeight: "100vh" }}
+        direction="column"
+        alignItems="center"
       >
-        <Grid2
-          item
-          xs={12}
-          sm={6}
-          md={4}
-          lg={3}
-        >
+        <Grid size={{ xs: 12 }}>
           <PageHead />
           <Header />
-          <main>{children}</main>
+        </Grid>
+        <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+          <Box component="main">{children}</Box>
+        </Grid>
+        <Grid size={{ xs: 12 }}>
           <Footer />
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </>
   );
 };
