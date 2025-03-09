@@ -25,10 +25,14 @@ export default function Projects({ data }) {
         <Box>
           <List>
             {data.projects.map((project) => (
-              <ListItem component="div">
+              <ListItem
+                component="div"
+                sx={{ display: "flex", justifyContent: "space-between" }}
+              >
                 <Link
                   href={project.link}
                   target="_blank"
+                  sx={{pr:10}}
                 >
                   {project.title}
                 </Link>

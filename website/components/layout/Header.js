@@ -1,4 +1,5 @@
-import { Typography, Box, List, ListItem } from "@mui/material";
+import { GitHub } from "@mui/icons-material";
+import { Typography, Box, List, ListItem, Button, IconButton } from "@mui/material";
 import { useState } from "react";
 
 const Header = () => {
@@ -17,16 +18,20 @@ const Header = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          border: "purple 3px solid",
+          borderBottom: "#52207b 1px solid",
         }}
       >
         <Typography
           component="a"
           href="/"
+          sx={{
+            fontSize: "1.25rem",
+            "&:hover": { textDecorationLine: "underline", textDecorationColor: "#c09edb" },
+          }}
         >
           leidorf
         </Typography>
-        <Box sx={{}} >
+        <Box sx={{}}>
           <List sx={{ display: "flex" }}>
             <ListItem
               component="a"
@@ -48,6 +53,12 @@ const Header = () => {
             </ListItem>
           </List>
         </Box>
+        <IconButton
+          href="https://github.com/leidorf"
+          target="_blank"
+        >
+          <GitHub sx={{ filter: "invert(1)" }} />
+        </IconButton>
       </Box>
     </>
   );
