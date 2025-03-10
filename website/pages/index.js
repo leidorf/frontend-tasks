@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Layout>
-        <PageHead headTitle={"Ana Sayfa"}></PageHead>
+        <PageHead headTitle={"Ana Sayfa"} />
         <Typography>ANA Sayfa</Typography>
         <List>
           <ListItem>

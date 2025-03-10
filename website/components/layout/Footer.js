@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <>
       <Box
-        sx={{ mt: 3, p: 2, border: "white 1px solid", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+        sx={{ mt: 3, p: 2, borderTop: "var(--primaryText) 1px solid", display: "flex", justifyContent: "space-between", alignItems: "center" }}
       >
         <Box>
           <Typography

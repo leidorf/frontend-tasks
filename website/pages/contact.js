@@ -7,8 +7,14 @@ export default function Contact() {
   return (
     <>
       <Layout>
-        <PageHead headTitle={"İletişim"}></PageHead>
-        <Typography>İLETİŞİM</Typography>
+        <PageHead headTitle={"İletişim"} />{" "}
+        <Typography
+          variant="h3"
+          gutterBottom
+          sx={{ color: "var(--secondaryText)" }}
+        >
+          iletişim
+        </Typography>
         <ContactForm />
       </Layout>
     </>

@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import PageHead from "@/components/layout/PageHead";
-import { Box, Link, List, ListItem, Typography } from "@mui/material";
+import ProjectsComponent from "@/components/ProjectsComponent";
+import { Typography } from "@mui/material";
 import fsPromises from "fs/promises";
 import path from "path";
 
@@ -20,27 +21,15 @@ export default function Projects({ data }) {
   return (
     <>
       <Layout>
-        <PageHead headTitle={"Projeler"}></PageHead>
-        <Typography>PROJELER</Typography>
-        <Box>
-          <List>
-            {data.projects.map((project) => (
-              <ListItem
-                component="div"
-                sx={{ display: "flex", justifyContent: "space-between" }}
-              >
-                <Link
-                  href={project.link}
-                  target="_blank"
-                  sx={{pr:10}}
-                >
-                  {project.title}
-                </Link>
-                <Typography>{project.description}</Typography>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
+        <PageHead headTitle={"Projeler"} />
+        <Typography
+          variant="h3"
+          color="var(--secondaryText)"
+          gutterBottom
+        >
+          projeler
+        </Typography>
+        <ProjectsComponent data={data} />
       </Layout>
     </>
   );
