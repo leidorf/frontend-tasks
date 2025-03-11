@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <>
       <Layout>
-        <PageHead headTitle={"İletişim"} />{" "}
+        <PageHead headTitle={"iletişim"} />{" "}
         <Typography
           variant="h3"
           gutterBottom

@@ -4,7 +4,7 @@ const PageHead = ({ headTitle }) => {
   return (
     <>
       <Head>
-        <title>{headTitle ? headTitle : "Yavuzlar Kişisel Web Sitesi"}</title>
+        <title>{headTitle ? headTitle : "leidorf"}</title>
       </Head>
     </>
   );

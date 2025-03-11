@@ -60,7 +60,7 @@ const ContactForm = () => {
             rows={6}
             {...register("message", { required: true })}
             color="secondary"
-            variant="filled"
+            variant="outlined"
             focused
             sx={{
               mb: "1.5rem",

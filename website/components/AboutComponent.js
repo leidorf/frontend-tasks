@@ -3,7 +3,10 @@ import { Box, Divider, Link, List, ListItem, ListItemText, Typography } from "@m
 const AboutComponent = ({ data }) => {
   return (
     <>
-      <Typography sx={{ mb: "1.5rem", paddingX: "1rem", textAlign: "justify" }}>
+      <Typography
+        component="p"
+        sx={{ marginY: "1.5rem", paddingX: "1rem", textAlign: "justify" }}
+      >
         Selamlar ben Güray Dağ, Manisa Celal Bayar Üniversitesi'nde yazılım mühendisliği son sınıf öğrencisiyim. Üniversite
         eğitimim boyunca yazılım mühendisliğinin çeşitli alt dallarında projelerde bulundum ve geliştirdim. Bu alt dalları
         denedikten sonra kendimi en yakın olarak web geliştirme ve siber güvenliğe yakın hissettim. 2023 yılında tesadüfen Siber

@@ -21,7 +21,7 @@ export default function About({ data }) {
   return (
     <>
       <Layout>
-        <PageHead headTitle={"Hakkımda"} />
+        <PageHead headTitle={"hakkımda"} />
         <Typography
           variant="h3"
           gutterBottom

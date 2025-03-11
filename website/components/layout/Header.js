@@ -1,53 +1,54 @@
 import { GitHub } from "@mui/icons-material";
-import { Typography, Box, List, ListItem, Button, IconButton } from "@mui/material";
-import { useState } from "react";
+import { Typography, Box, List, ListItem, IconButton } from "@mui/material";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
   return (
     <>
       <Box
         sx={{
           mb: 3,
           p: 2,
+          paddingX: 5,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          borderBottom: "#52207b 1px solid",
+          borderBottom: "#9C27B0 1px solid",
+          borderRadius: "1.5rem",
         }}
       >
         <Typography
+          variant="h5"
           component="a"
           href="/"
           sx={{
-            fontSize: "1.25rem",
-            "&:hover": { textDecorationLine: "underline", textDecorationColor: "#c09edb" },
+            textWrap: "nowrap",
+            "&:hover": {
+              color: "var(--secondaryText)",
+            },
           }}
         >
-          leidorf
+          ✮ leidorf
         </Typography>
-        <Box sx={{}}>
+        <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <List sx={{ display: "flex" }}>
             <ListItem
               component="a"
               href="/projects"
+              sx={{ "&:hover": { color: "var(--secondaryText)" } }}
             >
               projeler
             </ListItem>
             <ListItem
               component="a"
               href="/about"
+              sx={{ "&:hover": { color: "var(--secondaryText)" } }}
             >
               hakkımda
             </ListItem>
             <ListItem
               component="a"
               href="/contact"
+              sx={{ "&:hover": { color: "var(--secondaryText)" } }}
             >
               iletişim
             </ListItem>
@@ -57,7 +58,7 @@ const Header = () => {
           href="https://github.com/leidorf"
           target="_blank"
         >
-          <GitHub sx={{ filter: "invert(1)" }} />
+          <GitHub color="secondary" />
         </IconButton>
       </Box>
     </>

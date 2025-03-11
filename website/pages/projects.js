@@ -21,7 +21,7 @@ export default function Projects({ data }) {
   return (
     <>
       <Layout>
-        <PageHead headTitle={"Projeler"} />
+        <PageHead headTitle={"projeler"} />
         <Typography
           variant="h3"
           color="var(--secondaryText)"
