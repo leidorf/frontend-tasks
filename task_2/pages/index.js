@@ -1,17 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Button, colors, Grid, Grid2, Link, TextField, Typography } from "@mui/material";
-
-{
-  /* 
-    1- Grid 
-      1.1 <Grid continer></Grid>
-      1.2 <Grid item></Grid>
-    2- Typograpy
-    3- Box
-    4- TextField
-    5- Button
-    */
-}
+import { Box, Button, Grid, Link, TextField, Typography } from "@mui/material";
 
 export async function getServerSideProps() {
   try {
@@ -45,7 +33,7 @@ export default function Home({ passwdEx }) {
     { id: 2, state: (password) => password.match(/[A-Z]/), text: "büyük harf içermeli", isTrue: false },
     { id: 3, state: (password) => password.match(/\d/), text: "rakam içermeli", isTrue: false },
     { id: 4, state: (password) => regex.test(password), text: "özel karakter içermeli", isTrue: false },
-    { id: 5, state: (password) => password.includes("yavuzlar"), text: "'yavuzlar' içermeli", isTrue: false },
+    { id: 5, state: (password) => password.match(/yavuzlar/i), text: "'yavuzlar' içermeli", isTrue: false },
     {
       id: 6,
       state: (password) => weakUsernames.some((uname) => password.includes(uname)),
@@ -56,14 +44,26 @@ export default function Home({ passwdEx }) {
     { id: 8, state: (password) => password.includes(rnd1 + rnd2), text: rnd1 + ` + ` + rnd2 + ` = ?`, isTrue: false },
     {
       id: 9,
-      state: (password) => password.includes("<script>alert(1)</script>"),
+      state: (password) => password.match(/<script>alert\(1\)<\/script>/i),
       text: "en basit xss payloadını içermeli",
       isTrue: false,
     },
     {
       id: 10,
-      state: (password) => password.includes("CVE-2017-0144"),
+      state: (password) => password.match(/cve-2017-0144/i),
       text: "wannacry cve kodunu içermeli",
+      isTrue: false,
+    },
+    {
+      id: 11,
+      state: (password) => password.match(/network/i),
+      text: "ip adresinin bulunduğu osi layer'ın ismini içermeli",
+      isTrue: false,
+    },
+    {
+      id: 12,
+      state: (password) => password.match(/\/etc\/shadow/i),
+      text: "linux'ta kullanıcı şifrelerinin yer aldığı dosya yolunu içermeli",
       isTrue: false,
     },
   ]);
@@ -89,7 +89,8 @@ export default function Home({ passwdEx }) {
 
   return (
     <>
-      <Grid2
+      <title>Meet the Requirements</title>
+      <Grid
         container
         justifyContent={"center"}
         textAlign={"center"}
@@ -98,7 +99,7 @@ export default function Home({ passwdEx }) {
           paddingTop: "7.5rem",
         }}
       >
-        <Grid2
+        <Grid
           item
           size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
         >
@@ -137,12 +138,13 @@ export default function Home({ passwdEx }) {
             fullWidth
             sx={{
               marginBottom: "1rem",
+              textTransform: "none",
               "&.Mui-disabled": {
                 color: "grey",
               },
             }}
           >
-            {showPassword ? "GİZLE" : "GÖSTER"}
+            {showPassword ? "gizle" : "göster"}
           </Button>
           <Box sx={{ marginBottom: "1rem" }}>
             <ul>
@@ -217,8 +219,8 @@ export default function Home({ passwdEx }) {
           >
             github
           </Link>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </>
   );
 }
